@@ -3,7 +3,7 @@ public class RelacaoPesoPreco {
     public static double retornaPrecoProduto(String item, int qtd) {
         double precoTotal = 0;
 
-        if ("pao".equals(item)) {
+        if ("paes".equals(item)) {
             precoTotal = 12.75 * (qtd * 60 / 1000);
         }
 

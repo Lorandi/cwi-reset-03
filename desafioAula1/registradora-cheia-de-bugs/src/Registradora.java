@@ -20,7 +20,7 @@ public class Registradora {
         double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
 
         if (QuantidadeMinimaItem.precisaReposicao(item)) {
-            if ("pao".equals(item) || "sanduiche".equals(item) || "torta".equals(item)) {
+            if ("paes".equals(item) || "sanduiche".equals(item) || "torta".equals(item)) {
                 if (!DataProjeto.cozinhaEmFuncionamento()) {
                     System.out.println("Cozinha fechada!");
                 }
@@ -86,7 +86,7 @@ public class Registradora {
 
     private static void quintoBug() {
         DataProjeto.criarDataComCozinhaFuncionando();
-        String item = "pao";
+        String item = "paes";
         int quantidade = 10;
 
         double precoTotal = registrarItem(item, quantidade);
