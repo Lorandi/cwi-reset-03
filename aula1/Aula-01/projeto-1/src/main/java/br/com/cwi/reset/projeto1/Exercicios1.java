@@ -1,6 +1,7 @@
 package br.com.cwi.reset.projeto1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Exercicios1 {
@@ -46,9 +47,44 @@ public class Exercicios1 {
         }
         return invertida;
     }
+
+    public List<Integer> ordenarLista(List<Integer> numeros) {
+
+//        int temp;
+//        int[] arrayInt = new int[numeros.size()];
 //
-//    public List<Integer> ordenarLista(List<Integer> numeros) {
-//        return Arrays.asList(1, 2, 3, 4, 5);
-//    }
+//        for (int i = 0; i < numeros.size() ; i++){
+//            arrayInt[i] = (int)numeros.toArray()[i];
+//        }
+//
+//        for(int j = 0; j < arrayInt.length; j++){
+//            for (int k = 0; k < arrayInt.length; k++){
+//                if (arrayInt[j] < arrayInt[k]){
+//                    temp = arrayInt[k];
+//                    arrayInt[k] = arrayInt[j];
+//                    arrayInt[j] = temp;
+//                }
+//            }
+//        }
+//
+//
+//        for (int l = 0; l < arrayInt.length; l++){
+//            System.out.println(arrayInt[l]);
+//        }
+
+        int temp = 0;
+
+        for (int i = 0; i < (numeros.size() - i); i++) {
+            for (int j = 0; j < (numeros.size() - i - 1); j++) {
+                if (numeros.get(j) > numeros.get(j+1)) {
+                    temp = numeros.get(j);
+                    numeros.set(j,numeros.get(j+1));
+                    numeros.set(j+1, temp);
+                }
+            }
+        }
+        return numeros;
+//
+    }
 }
 
