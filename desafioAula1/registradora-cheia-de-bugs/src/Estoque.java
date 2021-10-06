@@ -1,68 +1,67 @@
 public class Estoque {
-     int paes = 3600;
-     int torta = 4;
-     int fatiasTorta = torta * 16;
-     int sanduiche = 20;
-     int leite = 20;
-     int cafe = 20;
 
-    public int getPaes() {
+    static int paes = 60;
+    static int torta = 4;
+    static int fatiasTorta = torta * 16;
+    static int sanduiche = 20;
+    static int leite = 20;
+    static int cafe = 20;
+
+    public static int getPaes() {
         return paes;
     }
 
-    public void setPaes(int paes) {
-        this.paes = paes;
+    public static void setPaes(int paes) {
+        Estoque.paes = paes;
     }
 
-    public int getTorta() {
+    public static int getTorta() {
         return torta;
     }
 
-    public void setTorta(int torta) {
-        this.torta = torta;
+    public static void setTorta(int torta) {
+        Estoque.torta = torta;
     }
 
-    public int getFatiasTorta() {
+    public static int getFatiasTorta() {
         return fatiasTorta;
     }
 
-    public void setFatiasTorta(int fatiasTorta) {
-        this.fatiasTorta = fatiasTorta;
+    public static void setFatiasTorta(int fatiasTorta) {
+        Estoque.fatiasTorta = fatiasTorta;
     }
 
-    public int getSanduiche() {
+    public static int getSanduiche() {
         return sanduiche;
     }
 
-    public void setSanduiche(int sanduiche) {
-        this.sanduiche = sanduiche;
+    public static void setSanduiche(int sanduiche) {
+        Estoque.sanduiche = sanduiche;
     }
 
-    public int getLeite() {
+    public static int getLeite() {
         return leite;
     }
 
-    public void setLeite(int leite) {
-        this.leite = leite;
+    public static void setLeite(int leite) {
+        Estoque.leite = leite;
     }
 
-    public int getCafe() {
+    public static int getCafe() {
         return cafe;
     }
 
-    public void setCafe(int cafe) {
-        this.cafe = cafe;
+    public static void setCafe(int cafe) {
+        Estoque.cafe = cafe;
     }
 
-    @Override
-    public String toString() {
-        return "Estoque{" +
-                "paes=" + paes +
-                ", torta=" + torta +
-                ", fatiasTorta=" + fatiasTorta +
-                ", sanduiche=" + sanduiche +
-                ", leite=" + leite +
-                ", cafe=" + cafe +
-                '}';
+    public static String showEstoque(){
+        return "Estoque: " + "\n"
+                + "Pães: " + getPaes()+ "\n"
+                + "Fatias de torta: " + getFatiasTorta()+ "\n"
+                + "Sanduiche:  " + getSanduiche()+ "\n"
+                + "Leite: " + getLeite()+ "\n"
+                + "Café: " + getCafe()+ "\n" ;
     }
+
 }
