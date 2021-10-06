@@ -14,6 +14,7 @@ public class DataProjeto {
         int hora = random.nextInt(10) + 6;
         int minuto = hora == 16 ? random.nextInt(40) : random.nextInt(60);
 
+
         return new DataProjeto(true, hora, minuto);
     }
 
@@ -21,6 +22,7 @@ public class DataProjeto {
         Random random = new Random();
         int hora = random.nextInt(6);
         int minuto = random.nextInt(60);
+
 
         return new DataProjeto(true, hora, minuto);
     }
@@ -30,6 +32,7 @@ public class DataProjeto {
         int hora = random.nextInt(24);
         int minuto = random.nextInt(60);
 
+
         return new DataProjeto(false, hora, minuto);
     }
 
@@ -37,6 +40,7 @@ public class DataProjeto {
         this.diaUtil = diaUtil;
         this.hora = hora;
         this.minuto = minuto;
+        System.out.println("Horário do pedido: " + hora + ":" + minuto);
     }
 
     public static boolean cozinhaEmFuncionamento() {

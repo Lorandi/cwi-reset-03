@@ -6,14 +6,13 @@ public class Registradora {
 
         segundoBug();
 
+        terceiroBug();
 
-//        terceiroBug();
-//
-//        quartoBug();
-//
-//        quintoBug();
-//
-//        sextoBug();
+        quartoBug();
+
+        quintoBug();
+
+        sextoBug();
     }
 
     private static double registrarItem(String item, int quantidade) {
@@ -43,6 +42,7 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        pedidoFinalizado();
     }
 
     private static void segundoBug() {
@@ -53,6 +53,8 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        pedidoFinalizado();
+
     }
 
     private static void terceiroBug() {
@@ -63,6 +65,7 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        pedidoFinalizado();
     }
 
     private static void quartoBug() {
@@ -74,6 +77,8 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        pedidoFinalizado();
+
 
         // Cliente 2
         String item2 = "sanduiche";
@@ -82,6 +87,8 @@ public class Registradora {
         double precoTotal2 = registrarItem(item2, quantidade2);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal2));
+        pedidoFinalizado();
+
     }
 
     private static void quintoBug() {
@@ -92,6 +99,8 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        pedidoFinalizado();
+
     }
 
     private static void sextoBug() {
@@ -103,6 +112,7 @@ public class Registradora {
         double precoTotal = registrarItem(item, quantidade);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal));
+        pedidoFinalizado();
 
         // Cliente 2
         String item2 = "sanduiche";
@@ -111,6 +121,12 @@ public class Registradora {
         double precoTotal2 = registrarItem(item2, quantidade2);
 
         System.out.println(String.format("Valor total: %.2f", precoTotal2));
+        pedidoFinalizado();
+    }
+
+    private static void pedidoFinalizado(){
+        System.out.println("------ Pedido finalizado ------");
+        System.out.println();
     }
 
 }
