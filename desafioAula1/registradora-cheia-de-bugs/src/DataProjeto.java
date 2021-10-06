@@ -9,6 +9,22 @@ public class DataProjeto {
     private static int hora;
     private static int minuto;
 
+    public static boolean isDiaUtil() {
+        return diaUtil;
+    }
+
+    public static int getHora() {
+        return hora;
+    }
+
+    public static int getMinuto() {
+        return minuto;
+    }
+
+    public static void setMinuto(int minuto) {
+        DataProjeto.minuto = minuto;
+    }
+
     public static DataProjeto criarDataComCozinhaFuncionando() {
         Random random = new Random();
         int hora = random.nextInt(10) + 6;
@@ -40,7 +56,7 @@ public class DataProjeto {
         this.diaUtil = diaUtil;
         this.hora = hora;
         this.minuto = minuto;
-        System.out.println("Horário do pedido: " + hora + ":" + minuto);
+
     }
 
     public static boolean cozinhaEmFuncionamento() {
