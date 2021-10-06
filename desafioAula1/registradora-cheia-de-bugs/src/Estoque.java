@@ -1,11 +1,11 @@
 public class Estoque {
 
-    static int paes = 60;
-    static int torta = 4;
-    static int fatiasTorta = torta * 16;
-    static int sanduiche = 20;
-    static int leite = 20;
-    static int cafe = 20;
+    private static int paes = 60;
+    private static int torta = 4;
+    private static int fatiasTorta = torta * 16;
+    private static int sanduiche = 20;
+    private static int leite = 20;
+    private static int cafe = 20;
 
     public static int getPaes() {
         return paes;
@@ -63,5 +63,4 @@ public class Estoque {
                 + "Leite: " + getLeite()+ "\n"
                 + "Café: " + getCafe()+ "\n" ;
     }
-
 }
