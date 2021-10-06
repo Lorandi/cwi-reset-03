@@ -2,25 +2,24 @@ public class QuantidadeMinimaItem {
 
     public static boolean precisaReposicao(String item) {
         if ("paes".equals(item)) {
-            return ItensPorQuantidade.paes < 600;
+            return Estoque.paes < 600;
         }
 
         if ("fatiasTorta".equals(item)) {
-            return ItensPorQuantidade.fatiasTorta < 10;
+            return Estoque.fatiasTorta < 10;
         }
 
         if ("sanduiche".equals(item)) {
-            return ItensPorQuantidade.sanduiche == 1;
+            return Estoque.sanduiche == 1;
         }
 
         if ("cafe".equals(item)) {
-            return ItensPorQuantidade.leite < 12;
+            return Estoque.leite < 12;
         }
 
         if ("leite".equals(item)) {
-            return ItensPorQuantidade.cafe < 12;
+            return Estoque.cafe < 12;
         }
-
         return false;
     }
 }
