@@ -16,7 +16,10 @@ public class Registradora {
     }
 
     private static double registrarItem(String item, int quantidade) {
-        System.out.println("Horário do pedido: " + DataProjeto.getHora() + ":" + DataProjeto.getMinuto());
+        System.out.println("Pedido:");
+        System.out.println("Horário: " +  DataProjeto.getHora() + ":" + DataProjeto.getMinuto());
+        System.out.println("Item: " + item);
+        System.out.println("Quantidade: " + quantidade);
         double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
 
         if (QuantidadeMinimaItem.precisaReposicao(item)) {
