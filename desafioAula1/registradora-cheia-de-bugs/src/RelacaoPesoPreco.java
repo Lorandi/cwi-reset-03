@@ -4,7 +4,7 @@ public class RelacaoPesoPreco {
         double precoTotal = 0;
 
         if ("paes".equals(item)) {
-            precoTotal = 12.75 * (qtd * 60 / 1000);
+            precoTotal =  qtd * (12.75 * 60 / 1000);
         }
 
         if ("fatiasTorta".equals(item)) {

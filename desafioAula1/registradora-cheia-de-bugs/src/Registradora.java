@@ -2,16 +2,16 @@
 public class Registradora {
 
     public static void main(String[] args) {
-        primeiroBug();
-
-        segundoBug();
-
-        terceiroBug();
+//        primeiroBug();
+//
+//        segundoBug();
+//
+//        terceiroBug();
 //
 //        quartoBug();
-//
-//        quintoBug();
-//
+
+        quintoBug();
+
 //        sextoBug();
     }
 
@@ -35,6 +35,7 @@ public class Registradora {
     }
 
     private static void primeiroBug() {
+        System.out.println("primeiroBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
         String item = "sanduiche";
         int quantidade = 4;
@@ -46,6 +47,7 @@ public class Registradora {
     }
 
     private static void segundoBug() {
+        System.out.println("segundoBug()");
         DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
         String item = "fatiasTorta";
         int quantidade = 10;
@@ -58,6 +60,7 @@ public class Registradora {
     }
 
     private static void terceiroBug() {
+        System.out.println("terceiroBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
         String item = "cafe";
         int quantidade = 40;
@@ -69,6 +72,7 @@ public class Registradora {
     }
 
     private static void quartoBug() {
+        System.out.println("quartoBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
         // Cliente 1
         String item = "sanduiche";
@@ -92,6 +96,7 @@ public class Registradora {
     }
 
     private static void quintoBug() {
+        System.out.println("quintoBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
         String item = "paes";
         int quantidade = 10;
@@ -104,6 +109,7 @@ public class Registradora {
     }
 
     private static void sextoBug() {
+        System.out.println("sextoBug()");
         DataProjeto.criarDataComCozinhaEncerradaSemDiaUtil();
         // Cliente 1
         String item = "sanduiche";
