@@ -7,19 +7,19 @@ public class Registradora {
         segundoBug();
 
         terceiroBug();
-
-        quartoBug();
-
-        quintoBug();
-
-        sextoBug();
+//
+//        quartoBug();
+//
+//        quintoBug();
+//
+//        sextoBug();
     }
 
     private static double registrarItem(String item, int quantidade) {
         double precoItem = RelacaoPesoPreco.retornaPrecoProduto(item, quantidade);
 
         if (QuantidadeMinimaItem.precisaReposicao(item)) {
-            if ("paes".equals(item) || "sanduiche".equals(item) || "torta".equals(item)) {
+            if ("paes".equals(item) || "sanduiche".equals(item) || "fatiasTorta".equals(item)) {
                 if (!DataProjeto.cozinhaEmFuncionamento()) {
                     System.out.println("Cozinha fechada!");
                 }
@@ -47,7 +47,7 @@ public class Registradora {
 
     private static void segundoBug() {
         DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
-        String item = "torta";
+        String item = "fatiasTorta";
         int quantidade = 10;
 
         double precoTotal = registrarItem(item, quantidade);
