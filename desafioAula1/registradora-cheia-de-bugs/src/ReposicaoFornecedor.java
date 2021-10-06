@@ -6,11 +6,16 @@ public class ReposicaoFornecedor {
         Random random = new Random();
 
         if ("leite".equals(item)) {
-            Estoque.setLeite(random.nextInt(40) + 10);
+
+            int compraLeite = random.nextInt(40) + 10;
+            Estoque.setLeite(Estoque.getLeite() + compraLeite);
+            System.out.println("Comprou mais " + compraLeite +  "leite");
         }
 
         if ("cafe".equals(item)) {
-            Estoque.setCafe(random.nextInt(40) + 10);
+            int compraCafe = random.nextInt(40) + 10;
+            Estoque.setCafe(Estoque.getCafe() + compraCafe);
+            System.out.println("Comprou mais " + compraCafe +  " cafés");
         }
     }
 }

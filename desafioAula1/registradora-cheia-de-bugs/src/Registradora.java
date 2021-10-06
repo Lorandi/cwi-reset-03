@@ -16,7 +16,6 @@ public class Registradora {
     }
 
     private static double registrarItem(String item, int quantidade) {
-        System.out.println(Estoque.showEstoque());
 
         System.out.println("Pedido:");
         System.out.println("Horário: " +  DataProjeto.getHora() + ":" + DataProjeto.getMinuto());
@@ -37,7 +36,6 @@ public class Registradora {
                 ReposicaoFornecedor.reporItem(item);
             }
         }
-
         return precoItem;
     }
 
@@ -138,6 +136,8 @@ public class Registradora {
     }
 
     private static void pedidoFinalizado(){
+        System.out.println();
+        System.out.println(Estoque.showEstoque());
         System.out.println("------ Pedido finalizado ------");
         System.out.println();
     }

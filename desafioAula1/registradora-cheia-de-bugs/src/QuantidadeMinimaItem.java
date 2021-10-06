@@ -10,15 +10,15 @@ public class QuantidadeMinimaItem {
         }
 
         if ("sanduiche".equals(item)) {
-            return Estoque.getSanduiche() == 1;
+            return Estoque.getSanduiche() <= 1;
         }
 
         if ("cafe".equals(item)) {
-            return Estoque.getLeite() < 12;
+            return Estoque.getCafe() < 12;
         }
 
         if ("leite".equals(item)) {
-            return Estoque.getCafe() < 12;
+            return Estoque.getLeite() < 12;
         }
         return false;
     }

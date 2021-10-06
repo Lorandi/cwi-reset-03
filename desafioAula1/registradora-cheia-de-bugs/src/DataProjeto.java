@@ -21,10 +21,6 @@ public class DataProjeto {
         return minuto;
     }
 
-    public static void setMinuto(int minuto) {
-        DataProjeto.minuto = minuto;
-    }
-
     public static DataProjeto criarDataComCozinhaFuncionando() {
         Random random = new Random();
         int hora = random.nextInt(10) + 6;
