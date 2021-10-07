@@ -39,11 +39,17 @@ public class RelacaoPesoPreco {
         if ("leite".equals(item)) {
             precoTotal = 4.48 * qtd;
             Estoque.setLeite(Estoque.getLeite() - qtd);
+            while(Estoque.getLeite() < 0){
+                ReposicaoFornecedor.reporItem(item);
+            }
         }
 
         if ("cafe".equals(item)) {
             precoTotal = 9.56 * qtd;
             Estoque.setCafe(Estoque.getCafe() - qtd);
+            while(Estoque.getCafe() < 0){
+                ReposicaoFornecedor.reporItem(item);
+            }
         }
 
         if ("sanduiche".equals(item)) {

@@ -14,11 +14,11 @@ public class Registradora {
 
 //            segundoBug();
 //
-//            terceiroBug();
+            terceiroBug();
 //
 //            quartoBug();
 //
-            quintoBug();
+//            quintoBug();
 //
 //            sextoBug();
         }
@@ -50,7 +50,7 @@ public class Registradora {
         System.out.println("terceiroBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
 
-        Pedido pedido = new Pedido("cafe",40);
+        Pedido pedido = new Pedido("leite",40);
 
         System.out.println(pedido.toString());
     }

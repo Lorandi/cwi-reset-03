@@ -11,7 +11,7 @@ public class ReposicaoFornecedor {
 
             int compraLeite = random.nextInt(40) + 10;
             Estoque.setLeite(Estoque.getLeite() + compraLeite);
-            System.out.println("Comprou mais " + compraLeite +  "leite");
+            System.out.println("Comprou mais " + compraLeite +  " leites");
         }
 
         if ("cafe".equals(item)) {
