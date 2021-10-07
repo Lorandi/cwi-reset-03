@@ -6,8 +6,8 @@ public class ReposicaoCozinha {
 
         if(DataProjeto.cozinhaEmFuncionamento()){
             if ("paes".equals(item)) {
-                System.out.println("fez mais 60 pão");
-                Estoque.setPaes(Estoque.getPaes() + 60);
+                System.out.println("fez mais 60 pães");
+                Estoque.setPaes(Estoque.getPaes() + 3600);
             }
             if ("fatiasTorta".equals(item)) {
                 System.out.println("fez mais 4 tortas");

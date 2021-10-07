@@ -2,7 +2,7 @@ package entities;
 
 public class Estoque {
 
-    private static int paes = 60;
+    private static int paes = 3600;
     private static int torta = 4;
     private static int fatiasTorta = torta * 16;
     private static int sanduiche = 20;
@@ -59,7 +59,7 @@ public class Estoque {
 
     public static String showEstoque(){
         return "Estoque: " + "\n"
-                + "Pães: " + getPaes()+ "\n"
+                + "Pães: " + getPaes()/ 60 + " unidades" + "\n"
                 + "Fatias de torta: " + getFatiasTorta()+ "\n"
                 + "Sanduiche:  " + getSanduiche()+ "\n"
                 + "Leite: " + getLeite()+ "\n"

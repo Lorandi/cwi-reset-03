@@ -18,7 +18,6 @@ public class Pedido {
             throw new BusinessException("Erro nos dados: quantidade de itens deve ser maior que zero");
         }
 
-        Arrays.asList(produtos).indexOf(item);
         if (Arrays.asList(produtos).indexOf(item) == -1) {
             throw new BusinessException("Erro nos dados: produto não cadastrado");
         }

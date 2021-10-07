@@ -6,13 +6,18 @@ public class RelacaoPesoPreco {
         double precoTotal = 0;
 
         if ("paes".equals(item)) {
-            if (Estoque.getPaes() >= qtd) {
-                precoTotal = qtd * 0.765;
-                Estoque.setPaes(Estoque.getPaes() - qtd);
+            if (Estoque.getPaes() >= qtd * 60) {
+                precoTotal = qtd * (12.75 * 60 / 1000);
+                Estoque.setPaes(Estoque.getPaes() - qtd * 60);
+            } else if(DataProjeto.cozinhaEmFuncionamento()){
+                while (Estoque.getPaes() < qtd * 60) {
+                    ReposicaoCozinha.reporItem("paes");
+                }
+                precoTotal = qtd * (12.75 * 60 / 1000);
+                Estoque.setPaes(Estoque.getPaes() - qtd * 60);
             } else {
-                System.out.println("Estoque insuficiente: " + Estoque.getPaes() + "paes");
+                System.out.println("Estoque insuficiente: " + Estoque.getPaes() / 60  + " unidade de pães");
             }
-
         }
 
         if ("fatiasTorta".equals(item)) {
