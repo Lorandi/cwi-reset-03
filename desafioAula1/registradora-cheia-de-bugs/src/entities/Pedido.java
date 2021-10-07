@@ -36,9 +36,7 @@ public class Pedido {
 
         if (QuantidadeMinimaItem.precisaReposicao(item)) {
             if ("paes".equals(item) || "sanduiche".equals(item) || "fatiasTorta".equals(item)) {
-                if (!DataProjeto.cozinhaEmFuncionamento()) {
-                    System.out.println("Cozinha fechada!");
-                }
+
                 ReposicaoCozinha.reporItem(item);
             }
 

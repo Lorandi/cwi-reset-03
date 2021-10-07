@@ -10,17 +10,17 @@ public class Registradora {
     public static void main(String[] args) {
 
         try {
-//            primeiroBug();
+            primeiroBug();
 
-//            segundoBug();
-//
+            segundoBug();
+
             terceiroBug();
-//
-//            quartoBug();
-//
-//            quintoBug();
-//
-//            sextoBug();
+
+            quartoBug();
+
+            quintoBug();
+
+            sextoBug();
         }
         catch (BusinessException e) {
             System.out.println(e.getMessage());
@@ -74,8 +74,6 @@ public class Registradora {
 
     private static void quintoBug() {
         System.out.println("quintoBug()");
-//        DataProjeto.criarDataComCozinhaEncerradaSemDiaUtil();
-//        DataProjeto.criarDataComCozinhaFuncionando();
         DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
 
         Pedido pedido = new Pedido("paes",1000);
@@ -92,7 +90,6 @@ public class Registradora {
         Pedido pedido = new Pedido("sanduiche",20);
 
         System.out.println(pedido.toString());
-
 
         // Cliente 2
         Pedido pedido2 = new Pedido("sanduiche",5);

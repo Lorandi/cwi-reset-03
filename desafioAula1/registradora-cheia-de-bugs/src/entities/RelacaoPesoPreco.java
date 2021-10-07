@@ -16,6 +16,7 @@ public class RelacaoPesoPreco {
                 precoTotal = qtd * (12.75 * 60 / 1000);
                 Estoque.setPaes(Estoque.getPaes() - qtd * 60);
             } else {
+                System.out.println("Cozinha fechada!");
                 System.out.println("Estoque insuficiente: " + Estoque.getPaes() / 60  + " unidade de pães");
             }
         }
@@ -31,6 +32,7 @@ public class RelacaoPesoPreco {
                 precoTotal = 4.5 * qtd;
                 Estoque.setFatiasTorta(Estoque.getFatiasTorta() - qtd);
             }else{
+                System.out.println("Cozinha fechada!");
                 System.out.println("Estoque insuficiente: " + Estoque.getFatiasTorta() + " fatias de torta");
             }
         }
@@ -63,6 +65,7 @@ public class RelacaoPesoPreco {
                 precoTotal = 4.5 * qtd;
                 Estoque.setSanduiche(Estoque.getSanduiche() - qtd);
             }else{
+                System.out.println("Cozinha fechada!");
                 System.out.println("Estoque insuficiente: " + Estoque.getSanduiche() + " sanduiches");
             }
         }
