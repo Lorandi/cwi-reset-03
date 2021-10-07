@@ -2,17 +2,17 @@
 public class Registradora {
 
     public static void main(String[] args) {
-        primeiroBug();
-
+//        primeiroBug();
+//
         segundoBug();
+//
+//        terceiroBug();
+//
+//        quartoBug();
+//
+//        quintoBug();
 
-        terceiroBug();
-
-        quartoBug();
-
-        quintoBug();
-
-        sextoBug();
+//        sextoBug();
     }
 
     private static double registrarItem(String item, int quantidade) {
@@ -53,9 +53,11 @@ public class Registradora {
 
     private static void segundoBug() {
         System.out.println("segundoBug()");
-        DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
+//        DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
+        DataProjeto.criarDataComCozinhaFuncionando();
+//        DataProjeto.criarDataComCozinhaEncerradaSemDiaUtil();
         String item = "fatiasTorta";
-        int quantidade = 10;
+        int quantidade = 63;
 
         double precoTotal = registrarItem(item, quantidade);
 

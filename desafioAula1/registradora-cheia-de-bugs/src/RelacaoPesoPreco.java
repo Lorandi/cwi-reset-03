@@ -4,14 +4,30 @@ public class RelacaoPesoPreco {
         double precoTotal = 0;
 
         if ("paes".equals(item)) {
-            precoTotal = qtd * 0.765;
-            Estoque.setPaes(Estoque.getPaes() - qtd);
+            if (Estoque.getPaes() >= qtd) {
+                precoTotal = qtd * 0.765;
+                Estoque.setPaes(Estoque.getPaes() - qtd);
+            } else {
+                System.out.println("Estoque insuficiente: " + Estoque.getPaes() + "paes");
+            }
+
         }
 
         if ("fatiasTorta".equals(item)) {
-            precoTotal = 6 * qtd;
-            Estoque.setFatiasTorta(Estoque.getFatiasTorta() - qtd);
+            if (Estoque.getFatiasTorta() >= qtd) {
+                precoTotal = 4.5 * qtd;
+                Estoque.setFatiasTorta(Estoque.getFatiasTorta() - qtd);
+            } else if (DataProjeto.cozinhaEmFuncionamento()) {
+                while (Estoque.getFatiasTorta() < qtd) {
+                    ReposicaoCozinha.reporItem("fatiasTorta");
+                }
+                precoTotal = 4.5 * qtd;
+                Estoque.setFatiasTorta(Estoque.getFatiasTorta() - qtd);
+            }else{
+                System.out.println("Estoque insuficiente: " + Estoque.getFatiasTorta() + " fatias de torta");
+            }
         }
+
 
         if ("leite".equals(item)) {
             precoTotal = 4.48 * qtd;
@@ -24,8 +40,18 @@ public class RelacaoPesoPreco {
         }
 
         if ("sanduiche".equals(item)) {
-            precoTotal = 4.5 * qtd;
-            Estoque.setSanduiche(Estoque.getSanduiche() - qtd);
+            if (Estoque.getSanduiche() >= qtd) {
+                precoTotal = 4.5 * qtd;
+                Estoque.setSanduiche(Estoque.getSanduiche() - qtd);
+            } else if (DataProjeto.cozinhaEmFuncionamento()) {
+                while (Estoque.getSanduiche() < qtd) {
+                    ReposicaoCozinha.reporItem("sanduiche");
+                }
+                precoTotal = 4.5 * qtd;
+                Estoque.setSanduiche(Estoque.getSanduiche() - qtd);
+            }else{
+                System.out.println("Estoque insuficiente: " + Estoque.getSanduiche() + " sanduiches");
+            }
         }
         return precoTotal;
     }

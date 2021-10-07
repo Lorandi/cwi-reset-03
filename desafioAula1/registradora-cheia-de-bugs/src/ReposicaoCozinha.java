@@ -7,9 +7,9 @@ public class ReposicaoCozinha {
                 System.out.println("fez mais 60 pão");
                 Estoque.setPaes(Estoque.getPaes() + 60);
             }
-            if ("torta".equals(item)) {
+            if ("fatiasTorta".equals(item)) {
                 System.out.println("fez mais 4 tortas");
-                Estoque.setTorta(Estoque.getTorta() + 4);
+                Estoque.setFatiasTorta(Estoque.getFatiasTorta() + 64);
             }
             if ("sanduiche".equals(item)) {
                 System.out.println("fez mais 20 sandubas");
