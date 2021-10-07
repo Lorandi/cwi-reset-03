@@ -1,3 +1,5 @@
+package entities;
+
 public class QuantidadeMinimaItem {
 
     public static boolean precisaReposicao(String item) {

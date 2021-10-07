@@ -1,3 +1,8 @@
+package entities;
+
+import exception.BusinessException;
+import java.util.Arrays;
+
 public class Pedido {
     String item;
     Integer quantidade;
@@ -5,7 +10,18 @@ public class Pedido {
     public Pedido() {
     }
 
+    String[] produtos = {"paes", "sanduiche",  "fatiasTorta","leite","cafe" };
+
     public Pedido(String item, Integer quantidade) {
+
+        if (quantidade < 0) {
+            throw new BusinessException("Erro nos dados: quantidade de itens deve ser maior que zero");
+        }
+
+        Arrays.asList(produtos).indexOf(item);
+        if (Arrays.asList(produtos).indexOf(item) == -1) {
+            throw new BusinessException("Erro nos dados: produto não cadastrado");
+        }
         this.item = item;
         this.quantidade = quantidade;
     }

@@ -1,3 +1,5 @@
+package entities;
+
 public class RelacaoPesoPreco {
 
     public static double retornaPrecoProduto(String item, int qtd) {

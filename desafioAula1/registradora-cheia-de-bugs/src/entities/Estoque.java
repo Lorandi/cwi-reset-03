@@ -1,3 +1,5 @@
+package entities;
+
 public class Estoque {
 
     private static int paes = 60;

@@ -1,25 +1,38 @@
+package aplication;
+
+import entities.DataProjeto;
+import entities.Pedido;
+import exception.BusinessException;
+
 
 public class Registradora {
 
     public static void main(String[] args) {
-        primeiroBug();
 
-        segundoBug();
+        try {
+            primeiroBug();
 
-        terceiroBug();
+//            segundoBug();
+//
+//            terceiroBug();
+//
+//            quartoBug();
+//
+//            quintoBug();
+//
+//            sextoBug();
+        }
+        catch (BusinessException e) {
+            System.out.println(e.getMessage());
+        }
 
-        quartoBug();
-
-        quintoBug();
-
-        sextoBug();
     }
 
     private static void primeiroBug() {
         System.out.println("primeiroBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
 
-        Pedido pedido = new Pedido("sanduiche",4);
+        Pedido pedido = new Pedido("sanduiche",0);
 
         System.out.println(pedido.toString());
     }
@@ -27,8 +40,8 @@ public class Registradora {
     private static void segundoBug() {
         System.out.println("segundoBug()");
         DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
-//        DataProjeto.criarDataComCozinhaFuncionando();
-//        DataProjeto.criarDataComCozinhaEncerradaSemDiaUtil();
+//        entities.DataProjeto.criarDataComCozinhaFuncionando();
+//        entities.DataProjeto.criarDataComCozinhaEncerradaSemDiaUtil();
 
         Pedido pedido = new Pedido("fatiasTorta",10);
 
