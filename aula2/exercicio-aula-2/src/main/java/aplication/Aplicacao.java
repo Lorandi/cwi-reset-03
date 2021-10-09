@@ -13,12 +13,12 @@ public class Aplicacao {
                 "Banhistas aprontam muitas confusões com peixe nervoso",
                 90,
                 1981,
-                4, diretor1);
+                4.0, diretor1);
         Filme filme2 = new Filme("Tudo sobre minha mãe",
                 "Problemas com a mami",
                 120,
                 2003,
-                5, diretor2);
+                5.0, diretor2);
 
         filme1.reproduzir();
         System.out.println();

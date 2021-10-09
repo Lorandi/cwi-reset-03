@@ -5,10 +5,10 @@ public class Filme {
     private String descricao;
     private Integer duracao;
     private Integer anoLancamento;
-    private Integer avaliacao;
+    private Double avaliacao;
     private Diretor diretor;
 
-    public Filme(String nome, String descricao, Integer duracao, Integer anoLancamento, Integer avaliacao, Diretor diretor) {
+    public Filme(String nome, String descricao, Integer duracao, Integer anoLancamento, Double avaliacao, Diretor diretor) {
         this.nome = nome;
         this.descricao = descricao;
         this.duracao = duracao;
@@ -57,11 +57,11 @@ public class Filme {
         this.anoLancamento = anoLancamento;
     }
 
-    public Integer getAvaliacao() {
+    public Double getAvaliacao() {
         return avaliacao;
     }
 
-    public void setAvaliacao(Integer avaliacao) {
+    public void setAvaliacao(Double avaliacao) {
         this.avaliacao = avaliacao;
     }
 
