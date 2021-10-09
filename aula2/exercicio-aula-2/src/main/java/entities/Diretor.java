@@ -1,7 +1,9 @@
+package entities;
+
 public class Diretor {
-    String nome;
-    Integer idade;
-    Integer quantidadeFilmes;
+    private String nome;
+    private Integer idade;
+    private Integer quantidadeFilmes;
 
     public Diretor(String nome, Integer idade, Integer quantidadeFilmes) {
         this.nome = nome;
