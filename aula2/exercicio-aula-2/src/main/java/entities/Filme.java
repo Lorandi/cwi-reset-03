@@ -1,5 +1,7 @@
 package entities;
 
+import exceptions.AvaliacaoForaDoPadraoException;
+
 public class Filme {
     private String nome;
     private String descricao;
@@ -8,14 +10,19 @@ public class Filme {
     private Double avaliacao;
     private Diretor diretor;
 
-    public Filme(String nome, String descricao, Integer duracao, Integer anoLancamento, Double avaliacao, Diretor diretor) {
+    public Filme(String nome, String descricao, Integer duracao, Integer anoLancamento, Double avaliacao, Diretor diretor) throws AvaliacaoForaDoPadraoException {
         this.nome = nome;
         this.descricao = descricao;
         this.duracao = duracao;
         this.anoLancamento = anoLancamento;
         this.avaliacao = avaliacao;
         this.diretor = diretor;
+
+        if (this.avaliacao < 0.0 || this.avaliacao >5.0){
+            throw new AvaliacaoForaDoPadraoException("Avaliação deve ser entre 0 e 5");
+        }
     }
+
 
     public void reproduzir(){
         System.out.println("Filme: " + this.nome +"\n"
