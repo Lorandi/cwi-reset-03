@@ -3,12 +3,12 @@ package entities;
 public class Filme {
     private String nome;
     private String descricao;
-    private String duracao;
+    private Integer duracao;
     private Integer anoLancamento;
     private Integer avaliacao;
     private Diretor diretor;
 
-    public Filme(String nome, String descricao, String duracao, Integer anoLancamento, Integer avaliacao, Diretor diretor) {
+    public Filme(String nome, String descricao, Integer duracao, Integer anoLancamento, Integer avaliacao, Diretor diretor) {
         this.nome = nome;
         this.descricao = descricao;
         this.duracao = duracao;
@@ -20,14 +20,9 @@ public class Filme {
     public void reproduzir(){
         System.out.println("Filme: " + this.nome +"\n"
                             + "Descrição: " + this.descricao +"\n"
-        + "Duração: " + this.duracao +"\n"
+        + "Duração: " + this.duracao + " minutos"+ "\n"
         + "Nome do diretor:  " + this.diretor.getNome());
     }
-
-
-
-
-
 
 
     public String getNome() {
@@ -46,11 +41,11 @@ public class Filme {
         this.descricao = descricao;
     }
 
-    public String getDuracao() {
+    public Integer getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(String duracao) {
+    public void setDuracao(Integer duracao) {
         this.duracao = duracao;
     }
 

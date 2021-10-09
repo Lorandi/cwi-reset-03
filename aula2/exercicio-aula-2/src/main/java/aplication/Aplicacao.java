@@ -11,12 +11,12 @@ public class Aplicacao {
 
         Filme filme1 = new Filme("Tubarão",
                 "Banhistas aprontam muitas confusões com peixe nervoso",
-                "90 minutos",
+                90,
                 1981,
                 4, diretor1);
         Filme filme2 = new Filme("Tudo sobre minha mãe",
                 "Problemas com a mami",
-                "120 minutos",
+                120,
                 2003,
                 5, diretor2);
 
