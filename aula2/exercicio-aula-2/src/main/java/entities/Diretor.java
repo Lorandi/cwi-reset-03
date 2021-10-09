@@ -4,11 +4,19 @@ public class Diretor {
     private String nome;
     private Integer idade;
     private Integer quantidadeFilmes;
+    private Genero genero;
 
-    public Diretor(String nome, Integer idade, Integer quantidadeFilmes) {
+    public Diretor(String nome, Integer idade, Integer quantidadeFilmes, Genero genero) {
         this.nome = nome;
         this.idade = idade;
         this.quantidadeFilmes = quantidadeFilmes;
+        this.genero = genero;
+    }
+
+    public void infosDiretor(){
+        System.out.println("Nome: " + this.nome +"\n"
+                + "Idade: " + this.idade+"\n"
+                + "Gênero: " + this.genero.decricao +"\n") ;
     }
 
     public String getNome() {

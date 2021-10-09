@@ -1,12 +1,22 @@
 package aplication;
 
+import entities.Ator;
 import entities.Diretor;
 import entities.Filme;
+import entities.Genero;
 
 public class Aplicacao {
     public static void main(String[] args) {
-        Diretor diretor1 = new Diretor("Steven Spilberg", 74, 45);
-        Diretor diretor2 = new Diretor("Pedro Almodovar", 72, 33);
+        Diretor diretor1 = new Diretor("Steven Spilberg", 74, 45, Genero.MASCULINO);
+        Diretor diretor2 = new Diretor("Pedro Almodovar", 72, 33, Genero.MASCULINO);
+        Ator ator1 = new Ator("Tiririca", 52, 12, Genero.MASCULINO);
+        Ator ator2 = new Ator("Dona Florinca", 67, 17, Genero.FEMININO);
+
+        ator1.infosAtor();
+        ator2.infosAtor();
+
+        diretor1.infosDiretor();
+        diretor2.infosDiretor();
 
 
         Filme filme1 = new Filme("Tubarão",
