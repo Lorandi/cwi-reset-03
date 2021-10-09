@@ -12,11 +12,11 @@ public class Aplicacao {
         Ator ator1 = new Ator("Tiririca", 52, 12, Genero.MASCULINO);
         Ator ator2 = new Ator("Dona Florinca", 67, 17, Genero.FEMININO);
 
-        ator1.infosAtor();
-        ator2.infosAtor();
+        ator1.infos();
+        ator2.infos();
 
-        diretor1.infosDiretor();
-        diretor2.infosDiretor();
+        diretor1.infos();
+        diretor2.infos();
 
 
         Filme filme1 = new Filme("Tubarão",

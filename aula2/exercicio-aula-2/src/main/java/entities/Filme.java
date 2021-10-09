@@ -24,7 +24,6 @@ public class Filme {
         + "Nome do diretor:  " + this.diretor.getNome());
     }
 
-
     public String getNome() {
         return nome;
     }
