@@ -1,5 +1,7 @@
 package entities;
 
+import java.security.spec.RSAOtherPrimeInfo;
+
 public class Ator extends Pessoa {
 
     private Integer oscarVencidos;
@@ -17,4 +19,5 @@ public class Ator extends Pessoa {
     public void setOscarVencidos(Integer oscarVencidos) {
         this.oscarVencidos = oscarVencidos;
     }
+
 }

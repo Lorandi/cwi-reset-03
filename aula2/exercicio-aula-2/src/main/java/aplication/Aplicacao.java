@@ -1,9 +1,6 @@
 package aplication;
 
-import entities.Ator;
-import entities.Diretor;
-import entities.Filme;
-import entities.Genero;
+import entities.*;
 
 public class Aplicacao {
     public static void main(String[] args) {
