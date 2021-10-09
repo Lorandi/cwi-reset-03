@@ -16,7 +16,7 @@ public class Diretor {
     public void infosDiretor(){
         System.out.println("Nome: " + this.nome +"\n"
                 + "Idade: " + this.idade+"\n"
-                + "Gênero: " + this.genero.decricao +"\n") ;
+                + "Gênero: " + this.genero.getDecricao() +"\n") ;
     }
 
     public String getNome() {

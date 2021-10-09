@@ -16,7 +16,7 @@ public class Ator {
     public void infosAtor(){
         System.out.println("Nome: " + this.nome +"\n"
                 + "Idade: " + this.idade+"\n"
-                + "Gênero: " + this.genero.decricao +"\n");
+                + "Gênero: " + this.genero.getDecricao() +"\n");
     }
 
 
