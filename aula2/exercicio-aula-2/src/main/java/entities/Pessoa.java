@@ -1,19 +1,26 @@
 package entities;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public abstract class  Pessoa {
     private String nome;
-    private Integer idade;
+    private String dataNacimento;
     private Genero genero;
 
-    public Pessoa(String nome, Integer idade, Genero genero) {
+
+
+    public Pessoa(String nome, String dataNacimento, Genero genero) {
         this.nome = nome;
-        this.idade = idade;
+        this.dataNacimento = dataNacimento;
         this.genero = genero;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyy");
+        LocalDate dateTime = LocalDate.parse(dataNacimento, formatter);
     }
 
     public void infos(){
         System.out.println("Nome: " + this.nome +"\n"
-                + "Idade: " + this.idade+"\n"
+                + "Idade: " + this.dataNacimento+"\n"
                 + "Gênero: " + this.genero.getDecricao() +"\n") ;
     }
 
@@ -25,12 +32,12 @@ public abstract class  Pessoa {
         this.nome = nome;
     }
 
-    public Integer getIdade() {
-        return idade;
+    public String getDataNacimento() {
+        return dataNacimento;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public void setDataNacimento(String dataNacimento) {
+        this.dataNacimento = dataNacimento;
     }
 
     public Genero getGenero() {

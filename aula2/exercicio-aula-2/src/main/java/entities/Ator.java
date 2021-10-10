@@ -1,14 +1,15 @@
 package entities;
 
 import java.security.spec.RSAOtherPrimeInfo;
+import java.time.LocalDate;
 
 public class Ator extends Pessoa {
 
     private Integer oscarVencidos;
 
 
-    public Ator(String nome, Integer idade, Integer oscarVencidos, Genero genero) {
-        super(nome, idade, genero);
+    public Ator(String nome, LocalDate dataNacimento, Integer oscarVencidos, Genero genero) {
+        super(nome, dataNacimento, genero);
         this.oscarVencidos = oscarVencidos;
     }
 

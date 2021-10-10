@@ -9,7 +9,7 @@ public class Aplicacao {
         try{
             Diretor diretor1 = new Diretor("Steven Spilberg", 74, 45, Genero.MASCULINO);
             Diretor diretor2 = new Diretor("Pedro Almodovar", 72, 33, Genero.MASCULINO);
-            Ator ator1 = new Ator("Tiririca", 52, 12, Genero.MASCULINO);
+            Ator ator1 = new Ator("Tiririca", "12/05/1980", 12, Genero.MASCULINO);
             Ator ator2 = new Ator("Dona Florinca", 67, 17, Genero.FEMININO);
 
             ator1.infos();
