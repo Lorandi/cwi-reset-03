@@ -7,6 +7,7 @@ public class QuantidadeMinimaItem {
     public static boolean precisaReposicao(String item) {
         if (Produtos.PAO.getDecricao().equals(item)) {
             return Estoque.getPaes() < Produtos.PAO.getQuantidadeMinima();
+//
         }
 
         if (Produtos.FATIAS_TORTA.getDecricao().equals(item)) {

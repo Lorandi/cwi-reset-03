@@ -11,17 +11,17 @@ public class Registradora {
     public static void main(String[] args) {
 
         try {
-//            primeiroBug();
-//
-//            segundoBug();
-//
-//            terceiroBug();
+            primeiroBug();
+
+            segundoBug();
+
+            terceiroBug();
 
             quartoBug();
 
-//            quintoBug();
-//
-//            sextoBug();
+            quintoBug();
+
+            sextoBug();
         }
         catch (BusinessException e) {
             System.out.println(e.getMessage());
@@ -33,7 +33,7 @@ public class Registradora {
         System.out.println("primeiroBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
 
-        Pedido pedido = new Pedido(Produtos.SANDUICHE,5);
+        Pedido pedido = new Pedido(Produtos.PAO,22);
 
         System.out.println(pedido.toString());
     }

@@ -52,10 +52,37 @@ public class Estoque {
 
     public static String showEstoque(){
         return "Estoque: " + "\n"
-                + "Pães: " + getPaes()/ 60 + " unidades" + "\n"
+                + "Pães: " + getPaes()+ " unidades" + "\n"
                 + "Fatias de torta: " + getFatiasTorta()+ "\n"
                 + "Sanduiche:  " + getSanduiche()+ "\n"
                 + "Leite: " + getLeite()+ "\n"
                 + "Café: " + getCafe()+ "\n" ;
     }
+
+
+    public static boolean precisaReporEstoque(Produtos produto, Integer quantidade){
+        if(produto == Produtos.PAO){
+            return quantidade > getPaes();
+        }
+
+        if(produto == Produtos.LEITE){
+            return quantidade > getLeite();
+        }
+
+        if(produto == Produtos.FATIAS_TORTA){
+            return quantidade > getFatiasTorta();
+        }
+
+        if(produto == Produtos.SANDUICHE){
+            return quantidade > getSanduiche();
+        }
+
+        if(produto == Produtos.CAFE){
+            return quantidade > getCafe();
+        }
+        return false;
+    }
+
+
+
 }
