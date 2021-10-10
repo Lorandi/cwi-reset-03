@@ -2,6 +2,7 @@ package aplication;
 
 import entities.DataProjeto;
 import entities.Pedido;
+import enums.Produtos;
 import exception.BusinessException;
 
 
@@ -10,17 +11,17 @@ public class Registradora {
     public static void main(String[] args) {
 
         try {
-            primeiroBug();
-
-            segundoBug();
-
-            terceiroBug();
+//            primeiroBug();
+//
+//            segundoBug();
+//
+//            terceiroBug();
 
             quartoBug();
 
-            quintoBug();
-
-            sextoBug();
+//            quintoBug();
+//
+//            sextoBug();
         }
         catch (BusinessException e) {
             System.out.println(e.getMessage());
@@ -32,7 +33,7 @@ public class Registradora {
         System.out.println("primeiroBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
 
-        Pedido pedido = new Pedido("sanduiche",5);
+        Pedido pedido = new Pedido(Produtos.SANDUICHE,5);
 
         System.out.println(pedido.toString());
     }
@@ -41,7 +42,7 @@ public class Registradora {
         System.out.println("segundoBug()");
         DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
 
-        Pedido pedido = new Pedido("fatiasTorta",10);
+        Pedido pedido = new Pedido(Produtos.FATIAS_TORTA,10);
 
         System.out.println(pedido.toString());
     }
@@ -50,7 +51,7 @@ public class Registradora {
         System.out.println("terceiroBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
 
-        Pedido pedido = new Pedido("leite",40);
+        Pedido pedido = new Pedido(Produtos.LEITE,40);
 
         System.out.println(pedido.toString());
     }
@@ -60,13 +61,13 @@ public class Registradora {
         DataProjeto.criarDataComCozinhaFuncionando();
         // Cliente 1
 
-        Pedido pedido = new Pedido("sanduiche",20);
+        Pedido pedido = new Pedido(Produtos.SANDUICHE,20);
 
         System.out.println(pedido.toString());
 
         // Cliente 2
 
-        Pedido pedido2 = new Pedido("sanduiche",5);
+        Pedido pedido2 = new Pedido(Produtos.SANDUICHE,5);
 
         System.out.println(pedido2.toString());
 
@@ -76,7 +77,7 @@ public class Registradora {
         System.out.println("quintoBug()");
         DataProjeto.criarDataComCozinhaEncerradaMasComDiaUtil();
 
-        Pedido pedido = new Pedido("paes",1000);
+        Pedido pedido = new Pedido(Produtos.PAO,1000);
 
         System.out.println(pedido.toString());
 
@@ -87,12 +88,12 @@ public class Registradora {
         DataProjeto.criarDataComCozinhaEncerradaSemDiaUtil();
         // Cliente 1
 
-        Pedido pedido = new Pedido("sanduiche",20);
+        Pedido pedido = new Pedido(Produtos.SANDUICHE,20);
 
         System.out.println(pedido.toString());
 
         // Cliente 2
-        Pedido pedido2 = new Pedido("sanduiche",5);
+        Pedido pedido2 = new Pedido(Produtos.SANDUICHE,5);
 
         System.out.println(pedido2.toString());
 

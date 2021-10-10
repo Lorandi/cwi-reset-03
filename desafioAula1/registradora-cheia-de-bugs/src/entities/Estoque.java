@@ -1,13 +1,14 @@
 package entities;
 
+import enums.Produtos;
+
 public class Estoque {
 
-    private static int paes = 3600;
-    private static int torta = 4;
-    private static int fatiasTorta = torta * 16;
-    private static int sanduiche = 20;
-    private static int leite = 20;
-    private static int cafe = 20;
+    private static int paes = Produtos.PAO.getEstoqueInicial();
+    private static int fatiasTorta = Produtos.FATIAS_TORTA.getEstoqueInicial();;
+    private static int sanduiche = Produtos.SANDUICHE.getEstoqueInicial();;
+    private static int leite = Produtos.LEITE.getEstoqueInicial();;
+    private static int cafe = Produtos.CAFE.getEstoqueInicial();;
 
     public static int getPaes() {
         return paes;
@@ -15,14 +16,6 @@ public class Estoque {
 
     public static void setPaes(int paes) {
         Estoque.paes = paes;
-    }
-
-    public static int getTorta() {
-        return torta;
-    }
-
-    public static void setTorta(int torta) {
-        Estoque.torta = torta;
     }
 
     public static int getFatiasTorta() {

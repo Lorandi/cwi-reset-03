@@ -1,21 +1,23 @@
 package entities;
 
+import enums.Produtos;
+
 public class ReposicaoCozinha {
 
     static void reporItem(String item) {
 
         if(DataProjeto.cozinhaEmFuncionamento()){
-            if ("paes".equals(item)) {
+            if (Produtos.PAO.getDecricao().equals(item)) {
                 System.out.println("fez mais 60 pães");
-                Estoque.setPaes(Estoque.getPaes() + 3600);
+                Estoque.setPaes(Estoque.getPaes() + Produtos.PAO.getEstoqueInicial());
             }
-            if ("fatiasTorta".equals(item)) {
-                System.out.println("fez mais 4 tortas");
-                Estoque.setFatiasTorta(Estoque.getFatiasTorta() + 64);
+            if (Produtos.FATIAS_TORTA.getDecricao().equals(item)) {
+                System.out.println("fez mais 64 fatidas de tortas");
+                Estoque.setFatiasTorta(Estoque.getFatiasTorta() + Produtos.FATIAS_TORTA.getEstoqueInicial());
             }
-            if ("sanduiche".equals(item)) {
+            if (Produtos.SANDUICHE.getDecricao().equals(item)) {
                 System.out.println("fez mais 20 sandubas");
-                Estoque.setSanduiche(Estoque.getSanduiche() + 20);
+                Estoque.setSanduiche(Estoque.getSanduiche() + Produtos.SANDUICHE.getEstoqueInicial());
             }
         }
     }

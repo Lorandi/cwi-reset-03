@@ -1,17 +1,19 @@
 package entities;
 
+import enums.Produtos;
+
 public class RelacaoPesoPreco {
 
     public static double retornaPrecoProduto(String item, int qtd) {
         double precoTotal = 0;
 
-        if ("paes".equals(item)) {
+        if (Produtos.PAO.getDecricao().equals(item)) {
             if (Estoque.getPaes() >= qtd * 60) {
                 precoTotal = qtd * (12.75 * 60 / 1000);
                 Estoque.setPaes(Estoque.getPaes() - qtd * 60);
             } else if(DataProjeto.cozinhaEmFuncionamento()){
                 while (Estoque.getPaes() < qtd * 60) {
-                    ReposicaoCozinha.reporItem("paes");
+                    ReposicaoCozinha.reporItem(Produtos.PAO.getDecricao());
                 }
                 precoTotal = qtd * (12.75 * 60 / 1000);
                 Estoque.setPaes(Estoque.getPaes() - qtd * 60);
@@ -21,13 +23,13 @@ public class RelacaoPesoPreco {
             }
         }
 
-        if ("fatiasTorta".equals(item)) {
+        if (Produtos.FATIAS_TORTA.getDecricao().equals(item)) {
             if (Estoque.getFatiasTorta() >= qtd) {
                 precoTotal = 4.5 * qtd;
                 Estoque.setFatiasTorta(Estoque.getFatiasTorta() - qtd);
             } else if (DataProjeto.cozinhaEmFuncionamento()) {
                 while (Estoque.getFatiasTorta() < qtd) {
-                    ReposicaoCozinha.reporItem("fatiasTorta");
+                    ReposicaoCozinha.reporItem(Produtos.FATIAS_TORTA.getDecricao());
                 }
                 precoTotal = 4.5 * qtd;
                 Estoque.setFatiasTorta(Estoque.getFatiasTorta() - qtd);
@@ -38,7 +40,7 @@ public class RelacaoPesoPreco {
         }
 
 
-        if ("leite".equals(item)) {
+        if (Produtos.LEITE.getDecricao().equals(item)) {
             precoTotal = 4.48 * qtd;
             Estoque.setLeite(Estoque.getLeite() - qtd);
             while(Estoque.getLeite() < 0){
@@ -46,7 +48,7 @@ public class RelacaoPesoPreco {
             }
         }
 
-        if ("cafe".equals(item)) {
+        if (Produtos.CAFE.getDecricao().equals(item)) {
             precoTotal = 9.56 * qtd;
             Estoque.setCafe(Estoque.getCafe() - qtd);
             while(Estoque.getCafe() < 0){
@@ -54,13 +56,13 @@ public class RelacaoPesoPreco {
             }
         }
 
-        if ("sanduiche".equals(item)) {
+        if (Produtos.SANDUICHE.getDecricao().equals(item)) {
             if (Estoque.getSanduiche() >= qtd) {
                 precoTotal = 4.5 * qtd;
                 Estoque.setSanduiche(Estoque.getSanduiche() - qtd);
             } else if (DataProjeto.cozinhaEmFuncionamento()) {
                 while (Estoque.getSanduiche() < qtd) {
-                    ReposicaoCozinha.reporItem("sanduiche");
+                    ReposicaoCozinha.reporItem(Produtos.SANDUICHE.getDecricao());
                 }
                 precoTotal = 4.5 * qtd;
                 Estoque.setSanduiche(Estoque.getSanduiche() - qtd);
