@@ -16,7 +16,6 @@ public class Pedido {
     public static double registrarItem(Produtos produto, int quantidade) {
 
         int estoque = 0;
-        int pedido = 0;
 
 
         if (quantidade < 0) {
@@ -48,7 +47,7 @@ public class Pedido {
         double valorTotal = produto.getValor() * quantidade;
 
 
-        if(quantidade > estoque){
+        if (quantidade > estoque) {
             if (produtoDependeDaCozinha && !cozinhaFuncionando) {
                 System.out.println("Cozinha fechada!");
                 System.out.println(String.format("Estoque insuficiente de %s com %d unidades", produto.getDecricao(), estoque));
@@ -57,18 +56,16 @@ public class Pedido {
                 Estoque.atualizaEstoque(produto, quantidade);
                 return valorTotal;
             }
-        } else{
+        } else {
             Estoque.atualizaEstoque(produto, quantidade);
             return valorTotal;
         }
-
     }
 
     @Override
     public String toString() {
         return String.format("Valor total: %.2f", registrarItem(produto, quantidade)) + "\n"
                 + pedidoFinalizado();
-
     }
 
     private static String pedidoFinalizado() {
