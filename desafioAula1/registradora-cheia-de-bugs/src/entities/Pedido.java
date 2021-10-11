@@ -18,21 +18,28 @@ public class Pedido {
     public static double registrarItem(Produtos produto, int quantidade) {
 
         int estoque = 0;
+        int setEstoque = 0;
 
 
         if (quantidade < 0) {
             throw new BusinessException("Erro de dados : quantidade deve ser maior que zero");
         }
 
+//        precoTotal = qtd * Produtos.PAO.getValor();
+//                Estoque.setPaes(Estoque.getPaes() - qtd );
+
         if (produto == Produtos.SANDUICHE) {
             estoque = Estoque.getSanduiche();
+            Estoque.setSanduiche(estoque - quantidade);
         }
         if (produto == Produtos.PAO) {
             estoque = Estoque.getPaes();
+            Estoque.setPaes(estoque - quantidade);
         }
 
         if (produto == Produtos.FATIAS_TORTA) {
             estoque = Estoque.getFatiasTorta();
+            Estoque.setFatiasTorta(estoque - quantidade);
         }
 
 
@@ -46,23 +53,26 @@ public class Pedido {
         System.out.println("Quantidade: " + quantidade);
 
 
-        if (!disponibilidade && produtoDependeDaCozinha && !cozinhaFuncionando) {
-            System.out.println("Cozinha fechada!");
-            System.out.println(String.format("Estoque insuficiente de %s com %d unidades", produto.getDecricao(), estoque));
+        if(estoque < quantidade){
+            if (produtoDependeDaCozinha && !cozinhaFuncionando) {
+                System.out.println("Cozinha fechada!");
+                System.out.println(String.format("Estoque insuficiente de %s com %d unidades", produto.getDecricao(), estoque));
+            } else {
+                if (produto == Produtos.LEITE || produto == Produtos.CAFE) {
+                    ReposicaoFornecedor.reporItem(produto.getDecricao());
+                }else{
+                    ReposicaoCozinha.reporItem(produto.getDecricao());
+                }
+            }
         }
 
-        if (Estoque.precisaReporEstoque(produto)) {
-            ReposicaoCozinha.reporItem(produto.getDecricao());
-        }
-
-        if (produto == Produtos.LEITE || produto == Produtos.CAFE) {
-            ReposicaoFornecedor.reporItem(produto.getDecricao());
-        }
 
 
-        double precoItem = RelacaoPesoPreco.retornaPrecoProduto(produto.getDecricao(), quantidade);
+//        double precoItem = RelacaoPesoPreco.retornaPrecoProduto(produto.getDecricao(), quantidade);
 
-        return precoItem;
+        double valorTotal = produto.getValor() * quantidade;
+
+        return valorTotal;
     }
 
     @Override

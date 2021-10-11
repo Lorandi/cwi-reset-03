@@ -33,7 +33,7 @@ public class Registradora {
         System.out.println("primeiroBug()");
         DataProjeto.criarDataComCozinhaFuncionando();
 
-        Pedido pedido = new Pedido(Produtos.PAO,22);
+        Pedido pedido = new Pedido(Produtos.PAO,100);
 
         System.out.println(pedido.toString());
     }
