@@ -4,7 +4,7 @@ import enums.Produtos;
 
 public class ReposicaoCozinha {
 
-    static void reporItem(Produtos produto) {
+    static void reporProduto(Produtos produto) {
 
         if(DataProjeto.cozinhaEmFuncionamento()){
             if (produto == Produtos.PAO) {

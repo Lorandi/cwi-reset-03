@@ -59,7 +59,7 @@ public class Pedido {
                     return valorTotal;
                 }else{
                     while(Estoque.precisaReporEstoque(produto)){
-                        ReposicaoCozinha.reporItem(produto);
+                        ReposicaoCozinha.reporProduto(produto);
                     }
                     return valorTotal;
                 }
