@@ -5,10 +5,14 @@ import enums.Produtos;
 public class Estoque {
 
     private static int paes = Produtos.PAO.getEstoqueInicial();
-    private static int fatiasTorta = Produtos.FATIAS_TORTA.getEstoqueInicial();;
-    private static int sanduiche = Produtos.SANDUICHE.getEstoqueInicial();;
-    private static int leite = Produtos.LEITE.getEstoqueInicial();;
-    private static int cafe = Produtos.CAFE.getEstoqueInicial();;
+    private static int fatiasTorta = Produtos.FATIAS_TORTA.getEstoqueInicial();
+    ;
+    private static int sanduiche = Produtos.SANDUICHE.getEstoqueInicial();
+    ;
+    private static int leite = Produtos.LEITE.getEstoqueInicial();
+    ;
+    private static int cafe = Produtos.CAFE.getEstoqueInicial();
+    ;
 
     public static int getPaes() {
         return paes;
@@ -50,61 +54,83 @@ public class Estoque {
         Estoque.cafe = cafe;
     }
 
-    public static String showEstoque(){
+    public static String showEstoque() {
         return "Estoque: " + "\n"
-                + "Pães: " + getPaes()+ " unidades" + "\n"
-                + "Fatias de torta: " + getFatiasTorta()+ "\n"
-                + "Sanduiche:  " + getSanduiche()+ "\n"
-                + "Leite: " + getLeite()+ "\n"
-                + "Café: " + getCafe()+ "\n" ;
+                + "Pães: " + getPaes() + " unidades" + "\n"
+                + "Fatias de torta: " + getFatiasTorta() + "\n"
+                + "Sanduiche:  " + getSanduiche() + "\n"
+                + "Leite: " + getLeite() + "\n"
+                + "Café: " + getCafe() + "\n";
     }
 
 
-    public static boolean precisaReporEstoque(Produtos produto){
-        if(produto == Produtos.PAO){
+    public static boolean precisaReporEstoque(Produtos produto) {
+        if (produto == Produtos.PAO) {
             return getPaes() < Produtos.PAO.getQuantidadeMinima();
         }
 
-        if(produto == Produtos.LEITE){
-            return  getLeite()< Produtos.LEITE.getQuantidadeMinima();
+        if (produto == Produtos.LEITE) {
+            return getLeite() < Produtos.LEITE.getQuantidadeMinima();
         }
 
-        if(produto == Produtos.FATIAS_TORTA){
+        if (produto == Produtos.FATIAS_TORTA) {
             return getFatiasTorta() < Produtos.FATIAS_TORTA.getQuantidadeMinima();
         }
 
-        if(produto == Produtos.SANDUICHE){
-            return  getSanduiche() < Produtos.SANDUICHE.getQuantidadeMinima();
+        if (produto == Produtos.SANDUICHE) {
+            return getSanduiche() < Produtos.SANDUICHE.getQuantidadeMinima();
         }
 
-        if(produto == Produtos.CAFE){
-            return  getCafe() < Produtos.CAFE.getQuantidadeMinima();
+        if (produto == Produtos.CAFE) {
+            return getCafe() < Produtos.CAFE.getQuantidadeMinima();
         }
         return false;
     }
 
-    public static void atualizaEstoque(Produtos produto, Integer quantidade){
-        if(produto == Produtos.PAO){
-            Estoque.setPaes(Estoque.getPaes() - quantidade) ;
+    public static void atualizaEstoque(Produtos produto, Integer quantidade) {
+        if (produto == Produtos.PAO) {
+            Estoque.setPaes(Estoque.getPaes() - quantidade);
+
+            if (DataProjeto.cozinhaEmFuncionamento()) {
+                while (Estoque.getPaes() < produto.getQuantidadeMinima()) {
+                    ReposicaoCozinha.reporProduto(produto);
+                }
+            }
         }
 
-        if(produto == Produtos.LEITE){
-            Estoque.setLeite(Estoque.getLeite() - quantidade);
-        }
 
-        if(produto == Produtos.FATIAS_TORTA){
+        if (produto == Produtos.FATIAS_TORTA) {
             Estoque.setFatiasTorta(Estoque.getFatiasTorta() - quantidade);
+
+            if (DataProjeto.cozinhaEmFuncionamento()) {
+                while (Estoque.getFatiasTorta() < produto.getQuantidadeMinima()) {
+                    ReposicaoCozinha.reporProduto(produto);
+                }
+            }
         }
 
-        if(produto == Produtos.SANDUICHE){
+        if (produto == Produtos.SANDUICHE) {
             Estoque.setSanduiche(Estoque.getSanduiche() - quantidade);
+
+            if (DataProjeto.cozinhaEmFuncionamento()) {
+                while (Estoque.getSanduiche() < produto.getQuantidadeMinima()) {
+                    ReposicaoCozinha.reporProduto(produto);
+                }
+            }
         }
 
-        if(produto == Produtos.CAFE){
-            Estoque.setCafe(Estoque.getCafe()- quantidade);
+        if (produto == Produtos.LEITE) {
+            Estoque.setLeite(Estoque.getLeite() - quantidade);
+            while (Estoque.getLeite() < produto.getQuantidadeMinima()) {
+                ReposicaoFornecedor.reporProduto(produto);
+            }
         }
 
+        if (produto == Produtos.CAFE) {
+            Estoque.setCafe(Estoque.getCafe() - quantidade);
+            while (Estoque.getCafe() < produto.getQuantidadeMinima()) {
+                ReposicaoFornecedor.reporProduto(produto);
+            }
+        }
     }
-
-
 }

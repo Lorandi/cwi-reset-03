@@ -1,8 +1,8 @@
 package enums;
 
 public enum Produtos {
-    PAO("Pãe", 0.765, 60, 10),
-    FATIAS_TORTA("Fatias de torta", 4.5, 64, 10),
+    PAO("Pães", 0.765, 60, 10),
+    FATIAS_TORTA("Fatias de torta", 6.0, 64, 10),
     SANDUICHE("Sanduiche", 4.5, 20, 1),
     LEITE("Leite", 4.48, 20, 12),
     CAFE("Café", 9.56, 20, 12);

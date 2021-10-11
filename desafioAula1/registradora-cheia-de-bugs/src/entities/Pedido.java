@@ -16,6 +16,7 @@ public class Pedido {
     public static double registrarItem(Produtos produto, int quantidade) {
 
         int estoque = 0;
+        int pedido = 0;
 
 
         if (quantidade < 0) {
@@ -24,10 +25,12 @@ public class Pedido {
 
         if (produto == Produtos.PAO) {
             estoque = Estoque.getPaes();
+            pedido = estoque - quantidade;
         }
 
         if (produto == Produtos.SANDUICHE) {
             estoque = Estoque.getSanduiche();
+            pedido = estoque - quantidade;
         }
 
         if (produto == Produtos.FATIAS_TORTA) {
@@ -46,42 +49,20 @@ public class Pedido {
 
         double valorTotal = produto.getValor() * quantidade;
 
-        if(Estoque.precisaReporEstoque(produto)){
+
+        if(quantidade > estoque){
             if (produtoDependeDaCozinha && !cozinhaFuncionando) {
                 System.out.println("Cozinha fechada!");
                 System.out.println(String.format("Estoque insuficiente de %s com %d unidades", produto.getDecricao(), estoque));
                 return 0.0;
             } else {
-                if (produto == Produtos.LEITE || produto == Produtos.CAFE) {
-                    while(Estoque.precisaReporEstoque(produto)){
-                        ReposicaoFornecedor.reporProduto(produto);
-                    }
-                    return valorTotal;
-                }else{
-                    while(Estoque.precisaReporEstoque(produto)){
-                        ReposicaoCozinha.reporProduto(produto);
-                    }
-                    return valorTotal;
-                }
+                Estoque.atualizaEstoque(produto, quantidade);
+                return valorTotal;
             }
-        }
-
-        if(!Estoque.precisaReporEstoque(produto)){
-            Estoque.atualizaEstoque(produto,quantidade);
+        } else{
+            Estoque.atualizaEstoque(produto, quantidade);
             return valorTotal;
-
-        } else {
-            return 0.0;
         }
-
-
-
-
-
-
-
-//        double precoItem = RelacaoPesoPreco.retornaPrecoProduto(produto.getDecricao(), quantidade);
-
 
     }
 
