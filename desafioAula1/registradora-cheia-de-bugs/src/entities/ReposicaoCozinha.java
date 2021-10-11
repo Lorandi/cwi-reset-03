@@ -4,18 +4,18 @@ import enums.Produtos;
 
 public class ReposicaoCozinha {
 
-    static void reporItem(String item) {
+    static void reporItem(Produtos produto) {
 
         if(DataProjeto.cozinhaEmFuncionamento()){
-            if (Produtos.PAO.getDecricao().equals(item)) {
+            if (produto == Produtos.PAO) {
                 System.out.println("fez mais 60 pães");
                 Estoque.setPaes(Estoque.getPaes() + Produtos.PAO.getEstoqueInicial());
             }
-            if (Produtos.FATIAS_TORTA.getDecricao().equals(item)) {
+            if (produto == Produtos.FATIAS_TORTA) {
                 System.out.println("fez mais 64 fatidas de tortas");
                 Estoque.setFatiasTorta(Estoque.getFatiasTorta() + Produtos.FATIAS_TORTA.getEstoqueInicial());
             }
-            if (Produtos.SANDUICHE.getDecricao().equals(item)) {
+            if (produto == Produtos.SANDUICHE) {
                 System.out.println("fez mais 20 sandubas");
                 Estoque.setSanduiche(Estoque.getSanduiche() + Produtos.SANDUICHE.getEstoqueInicial());
             }

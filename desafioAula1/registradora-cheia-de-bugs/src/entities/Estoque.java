@@ -83,5 +83,28 @@ public class Estoque {
         return false;
     }
 
+    public static void atualizaEstoque(Produtos produto, Integer quantidade){
+        if(produto == Produtos.PAO){
+            Estoque.setPaes(Estoque.getPaes() - quantidade) ;
+        }
+
+        if(produto == Produtos.LEITE){
+            Estoque.setLeite(Estoque.getLeite() - quantidade);
+        }
+
+        if(produto == Produtos.FATIAS_TORTA){
+            Estoque.setFatiasTorta(Estoque.getFatiasTorta() - quantidade);
+        }
+
+        if(produto == Produtos.SANDUICHE){
+            Estoque.setSanduiche(Estoque.getSanduiche() - quantidade);
+        }
+
+        if(produto == Produtos.CAFE){
+            Estoque.setCafe(Estoque.getCafe()- quantidade);
+        }
+
+    }
+
 
 }

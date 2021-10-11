@@ -3,8 +3,6 @@ package entities;
 import enums.Produtos;
 import exception.BusinessException;
 
-import java.util.Arrays;
-
 public class Pedido {
     Produtos produto;
     Integer quantidade;
@@ -18,61 +16,73 @@ public class Pedido {
     public static double registrarItem(Produtos produto, int quantidade) {
 
         int estoque = 0;
-        int setEstoque = 0;
 
 
         if (quantidade < 0) {
             throw new BusinessException("Erro de dados : quantidade deve ser maior que zero");
         }
 
-//        precoTotal = qtd * Produtos.PAO.getValor();
-//                Estoque.setPaes(Estoque.getPaes() - qtd );
+        if (produto == Produtos.PAO) {
+            estoque = Estoque.getPaes();
+        }
 
         if (produto == Produtos.SANDUICHE) {
             estoque = Estoque.getSanduiche();
-            Estoque.setSanduiche(estoque - quantidade);
-        }
-        if (produto == Produtos.PAO) {
-            estoque = Estoque.getPaes();
-            Estoque.setPaes(estoque - quantidade);
         }
 
         if (produto == Produtos.FATIAS_TORTA) {
             estoque = Estoque.getFatiasTorta();
-            Estoque.setFatiasTorta(estoque - quantidade);
         }
 
 
         boolean produtoDependeDaCozinha = produto == Produtos.PAO || produto == Produtos.FATIAS_TORTA || produto == Produtos.SANDUICHE;
         boolean cozinhaFuncionando = DataProjeto.cozinhaEmFuncionamento();
-        boolean disponibilidade = estoque > quantidade;
+
 
         System.out.println("Pedido:");
         System.out.println("Horário: " + DataProjeto.getHora() + ":" + DataProjeto.getMinuto());
         System.out.println("Item: " + produto.getDecricao());
         System.out.println("Quantidade: " + quantidade);
 
+        double valorTotal = produto.getValor() * quantidade;
 
-        if(estoque < quantidade){
+        if(Estoque.precisaReporEstoque(produto)){
             if (produtoDependeDaCozinha && !cozinhaFuncionando) {
                 System.out.println("Cozinha fechada!");
                 System.out.println(String.format("Estoque insuficiente de %s com %d unidades", produto.getDecricao(), estoque));
+                return 0.0;
             } else {
                 if (produto == Produtos.LEITE || produto == Produtos.CAFE) {
-                    ReposicaoFornecedor.reporItem(produto.getDecricao());
+                    while(Estoque.precisaReporEstoque(produto)){
+                        ReposicaoFornecedor.reporItem(produto.getDecricao());
+                    }
+                    return valorTotal;
                 }else{
-                    ReposicaoCozinha.reporItem(produto.getDecricao());
+                    while(Estoque.precisaReporEstoque(produto)){
+                        ReposicaoCozinha.reporItem(produto);
+                    }
+                    return valorTotal;
                 }
             }
         }
+
+        if(!Estoque.precisaReporEstoque(produto)){
+            Estoque.atualizaEstoque(produto,quantidade);
+            return valorTotal;
+
+        } else {
+            return 0.0;
+        }
+
+
+
+
 
 
 
 //        double precoItem = RelacaoPesoPreco.retornaPrecoProduto(produto.getDecricao(), quantidade);
 
-        double valorTotal = produto.getValor() * quantidade;
 
-        return valorTotal;
     }
 
     @Override

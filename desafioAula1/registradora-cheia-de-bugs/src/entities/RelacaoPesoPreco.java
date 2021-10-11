@@ -10,7 +10,7 @@ import enums.Produtos;
 //        if (Produtos.PAO.getDecricao().equals(item)) {
 //            if (Estoque.getPaes() >= qtd ) {
 //                precoTotal = qtd * Produtos.PAO.getValor();
-//                Estoque.setPaes(Estoque.getPaes() - qtd );
+//                ;
 //            } else if(DataProjeto.cozinhaEmFuncionamento()){
 //                while (Estoque.getPaes() < qtd ) {
 //                    ReposicaoCozinha.reporItem(Produtos.PAO.getDecricao());
