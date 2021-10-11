@@ -25,12 +25,10 @@ public class Pedido {
 
         if (produto == Produtos.PAO) {
             estoque = Estoque.getPaes();
-            pedido = estoque - quantidade;
         }
 
         if (produto == Produtos.SANDUICHE) {
             estoque = Estoque.getSanduiche();
-            pedido = estoque - quantidade;
         }
 
         if (produto == Produtos.FATIAS_TORTA) {
