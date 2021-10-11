@@ -54,7 +54,7 @@ public class Pedido {
             } else {
                 if (produto == Produtos.LEITE || produto == Produtos.CAFE) {
                     while(Estoque.precisaReporEstoque(produto)){
-                        ReposicaoFornecedor.reporItem(produto.getDecricao());
+                        ReposicaoFornecedor.reporProduto(produto);
                     }
                     return valorTotal;
                 }else{
