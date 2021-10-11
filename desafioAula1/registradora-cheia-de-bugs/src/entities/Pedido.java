@@ -17,9 +17,28 @@ public class Pedido {
 
     public static double registrarItem(Produtos produto, int quantidade) {
 
+        int estoque = 0;
+
+
         if (quantidade < 0) {
             throw new BusinessException("Erro de dados : quantidade deve ser maior que zero");
         }
+
+        if (produto == Produtos.SANDUICHE) {
+            estoque = Estoque.getSanduiche();
+        }
+        if (produto == Produtos.PAO) {
+            estoque = Estoque.getPaes();
+        }
+
+        if (produto == Produtos.FATIAS_TORTA) {
+            estoque = Estoque.getFatiasTorta();
+        }
+
+
+        boolean produtoDependeDaCozinha = produto == Produtos.PAO || produto == Produtos.FATIAS_TORTA || produto == Produtos.SANDUICHE;
+        boolean cozinhaFuncionando = DataProjeto.cozinhaEmFuncionamento();
+        boolean disponibilidade = estoque > quantidade;
 
         System.out.println("Pedido:");
         System.out.println("Horário: " + DataProjeto.getHora() + ":" + DataProjeto.getMinuto());
@@ -27,17 +46,17 @@ public class Pedido {
         System.out.println("Quantidade: " + quantidade);
 
 
-        if (Estoque.precisaReporEstoque(produto)){
+        if (!disponibilidade && produtoDependeDaCozinha && !cozinhaFuncionando) {
+            System.out.println("Cozinha fechada!");
+            System.out.println(String.format("Estoque insuficiente de %s com %d unidades", produto.getDecricao(), estoque));
+        }
 
-            if (produto == Produtos.PAO || produto == Produtos.FATIAS_TORTA || produto == Produtos.SANDUICHE) {
+        if (Estoque.precisaReporEstoque(produto)) {
+            ReposicaoCozinha.reporItem(produto.getDecricao());
+        }
 
-                ReposicaoCozinha.reporItem(produto.getDecricao());
-            }
-
-            if (produto == Produtos.LEITE || produto == Produtos.CAFE) {
-                ReposicaoFornecedor.reporItem(produto.getDecricao());
-            }
-
+        if (produto == Produtos.LEITE || produto == Produtos.CAFE) {
+            ReposicaoFornecedor.reporItem(produto.getDecricao());
         }
 
 
