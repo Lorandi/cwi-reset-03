@@ -2,6 +2,7 @@ package entities;
 
 import enums.Produtos;
 import exception.BusinessException;
+
 import java.util.Arrays;
 
 public class Pedido {
@@ -14,21 +15,20 @@ public class Pedido {
         this.produto = produto;
     }
 
-
     public static double registrarItem(Produtos produto, int quantidade) {
 
-        if(quantidade < 0){
+        if (quantidade < 0) {
             throw new BusinessException("Erro de dados : quantidade deve ser maior que zero");
         }
 
         System.out.println("Pedido:");
-        System.out.println("Horário: " +  DataProjeto.getHora() + ":" + DataProjeto.getMinuto());
+        System.out.println("Horário: " + DataProjeto.getHora() + ":" + DataProjeto.getMinuto());
         System.out.println("Item: " + produto.getDecricao());
         System.out.println("Quantidade: " + quantidade);
 
 
+        if (Estoque.precisaReporEstoque(produto)){
 
-        if (QuantidadeMinimaItem.precisaReposicao(produto.getDecricao())) {
             if (produto == Produtos.PAO || produto == Produtos.FATIAS_TORTA || produto == Produtos.SANDUICHE) {
 
                 ReposicaoCozinha.reporItem(produto.getDecricao());
@@ -37,7 +37,10 @@ public class Pedido {
             if (produto == Produtos.LEITE || produto == Produtos.CAFE) {
                 ReposicaoFornecedor.reporItem(produto.getDecricao());
             }
+
         }
+
+
         double precoItem = RelacaoPesoPreco.retornaPrecoProduto(produto.getDecricao(), quantidade);
 
         return precoItem;
@@ -50,7 +53,7 @@ public class Pedido {
 
     }
 
-    private static String pedidoFinalizado(){
+    private static String pedidoFinalizado() {
         return "\n"
                 + Estoque.showEstoque() + "\n"
                 + "------ Pedido finalizado ------" + "\n";

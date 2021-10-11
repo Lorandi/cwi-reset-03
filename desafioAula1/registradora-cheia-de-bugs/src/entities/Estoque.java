@@ -60,29 +60,28 @@ public class Estoque {
     }
 
 
-    public static boolean precisaReporEstoque(Produtos produto, Integer quantidade){
+    public static boolean precisaReporEstoque(Produtos produto){
         if(produto == Produtos.PAO){
-            return quantidade > getPaes();
+            return getPaes() < Produtos.PAO.getQuantidadeMinima();
         }
 
         if(produto == Produtos.LEITE){
-            return quantidade > getLeite();
+            return  getLeite()< Produtos.LEITE.getQuantidadeMinima();
         }
 
         if(produto == Produtos.FATIAS_TORTA){
-            return quantidade > getFatiasTorta();
+            return getFatiasTorta() < Produtos.FATIAS_TORTA.getQuantidadeMinima();
         }
 
         if(produto == Produtos.SANDUICHE){
-            return quantidade > getSanduiche();
+            return  getSanduiche() < Produtos.SANDUICHE.getQuantidadeMinima();
         }
 
         if(produto == Produtos.CAFE){
-            return quantidade > getCafe();
+            return  getCafe() < Produtos.CAFE.getQuantidadeMinima();
         }
         return false;
     }
-
 
 
 }
