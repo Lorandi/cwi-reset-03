@@ -11,16 +11,16 @@ public class Registradora {
     public static void main(String[] args) {
 
         try {
-//            primeiroBug();
+            primeiroBug();
 
-//            segundoBug();
-//
-//            terceiroBug();
-////
-//            quartoBug();
-//
-//            quintoBug();
-//
+            segundoBug();
+
+            terceiroBug();
+
+            quartoBug();
+
+            quintoBug();
+
             sextoBug();
         }
         catch (BusinessException e) {

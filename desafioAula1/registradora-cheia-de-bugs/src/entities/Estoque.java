@@ -64,28 +64,6 @@ public class Estoque {
     }
 
 
-    public static boolean precisaReporEstoque(Produtos produto) {
-        if (produto == Produtos.PAO) {
-            return getPaes() < Produtos.PAO.getQuantidadeMinima();
-        }
-
-        if (produto == Produtos.LEITE) {
-            return getLeite() < Produtos.LEITE.getQuantidadeMinima();
-        }
-
-        if (produto == Produtos.FATIAS_TORTA) {
-            return getFatiasTorta() < Produtos.FATIAS_TORTA.getQuantidadeMinima();
-        }
-
-        if (produto == Produtos.SANDUICHE) {
-            return getSanduiche() < Produtos.SANDUICHE.getQuantidadeMinima();
-        }
-
-        if (produto == Produtos.CAFE) {
-            return getCafe() < Produtos.CAFE.getQuantidadeMinima();
-        }
-        return false;
-    }
 
     public static void atualizaEstoque(Produtos produto, Integer quantidade) {
         if (produto == Produtos.PAO) {
@@ -97,7 +75,6 @@ public class Estoque {
                 }
             }
         }
-
 
         if (produto == Produtos.FATIAS_TORTA) {
             Estoque.setFatiasTorta(Estoque.getFatiasTorta() - quantidade);
