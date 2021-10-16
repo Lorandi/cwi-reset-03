@@ -5,13 +5,13 @@ public enum Genero {
     MASCULINO("Masculino"),
     NAO_BINARIO("Não Binário");
 
-    private String decricao;
+    private String descricao;
 
-    Genero(String decricao) {
-        this.decricao = decricao;
+    Genero(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getDecricao() {
-        return decricao;
+    public String getDescricao() {
+        return descricao;
     }
 }
