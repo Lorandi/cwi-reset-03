@@ -14,6 +14,30 @@ public abstract class  Pessoa {
         this.genero = genero;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public LocalDate getDataNacimento() {
+        return dataNacimento;
+    }
+
+    public void setDataNacimento(LocalDate dataNacimento) {
+        this.dataNacimento = dataNacimento;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
     @Override
     public String toString() {
         return "Pessoa{" +
