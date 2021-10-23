@@ -1,6 +1,5 @@
 package br.com.cwi.reset.projeto1.repository;
 
-import br.com.cwi.reset.projeto1.domain.Filme;
 import br.com.cwi.reset.projeto1.domain.Pet;
 
 import java.util.ArrayList;
@@ -8,9 +7,9 @@ import java.util.List;
 
 public class PetRepository {
 
-    private List<Pet> pets = new ArrayList<>();
+    private static List<Pet> pets = new ArrayList<>();
 
-    public Pet findByNome(String nome) {
+    public Pet buscarPeloNome(String nome) {
         for (Pet pet : pets) {
             if (pet.getNome().equals(nome)) {
                 return pet;
@@ -19,27 +18,28 @@ public class PetRepository {
         return null;
     }
 
-    public Pet save(Pet pet) {
+    public Pet salvar(Pet pet) {
         pets.add(pet);
         return pet;
     }
 
-    public void delete(Pet pet) {
+    public void deletar(Pet pet) {
         pets.remove(pet);
     }
 
-    public Pet update(Pet pet) {
-        Pet petExistente = findByNome(pet.getNome());
+    public Pet atualizar(Pet pet) {
+        Pet petCadastrado = buscarPeloNome(pet.getNome());
 
-        if (petExistente != null) {
-            pets.remove(petExistente);
+        if (petCadastrado != null) {
+            pets.remove(petCadastrado);
             pets.add(pet);
             return pet;
+        } else {
+            return null;
         }
-        return null;
     }
 
-    public List<Pet> findAll() {
+    public List<Pet> listarTodos() {
         return pets;
     }
 }
