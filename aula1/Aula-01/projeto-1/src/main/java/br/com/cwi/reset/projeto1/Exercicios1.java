@@ -7,19 +7,29 @@ import java.util.List;
 public class Exercicios1 {
 
     public Integer somarLista(List<Integer> numeros) {
-        int soma = 0;
+        Integer soma = 0;
+
+        if(numeros.isEmpty()){
+            throw new ArithmeticException("Erro matemático");
+        }
+
         for (Integer numero : numeros) {
             soma += numero;
         }
         return soma;
     }
 
-    public int calcularMedia(List<Integer> numeros) {
+    public Double calcularMedia(List<Integer> numeros) {
+        Double soma = 0.0;
 
-        int soma = 0;
         for (Integer numero : numeros) {
             soma += numero;
         }
+
+        if(numeros.isEmpty()){
+            throw new ArithmeticException("Erro matemático");
+        }
+
         return soma / numeros.size();
     }
 
@@ -49,42 +59,19 @@ public class Exercicios1 {
     }
 
     public List<Integer> ordenarLista(List<Integer> numeros) {
-
-//        int temp;
-//        int[] arrayInt = new int[numeros.size()];
-//
-//        for (int i = 0; i < numeros.size() ; i++){
-//            arrayInt[i] = (int)numeros.toArray()[i];
-//        }
-//
-//        for(int j = 0; j < arrayInt.length; j++){
-//            for (int k = 0; k < arrayInt.length; k++){
-//                if (arrayInt[j] < arrayInt[k]){
-//                    temp = arrayInt[k];
-//                    arrayInt[k] = arrayInt[j];
-//                    arrayInt[j] = temp;
-//                }
-//            }
-//        }
-//
-//
-//        for (int l = 0; l < arrayInt.length; l++){
-//            System.out.println(arrayInt[l]);
-//        }
-
-        int temp = 0;
-
-        for (int i = 0; i < (numeros.size() - i); i++) {
-            for (int j = 0; j < (numeros.size() - i - 1); j++) {
-                if (numeros.get(j) > numeros.get(j+1)) {
-                    temp = numeros.get(j);
-                    numeros.set(j,numeros.get(j+1));
-                    numeros.set(j+1, temp);
+        Integer[] ints = numeros.toArray(new Integer[numeros.size()]);
+        Integer aux;
+        for (int i = 0; i < numeros.size() - 1; i++) {
+            for (int j = i + 1; j < numeros.size(); j++) {
+                if (ints[j] < ints[i]) {
+                    aux = ints[j];
+                    ints[j] = ints[i];
+                    ints[i] = aux;
                 }
             }
         }
-        return numeros;
-//
+        return Arrays.asList(ints);
+
     }
 }
 
